@@ -53,12 +53,12 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
             ScriptEvents::POST_PACKAGE_UPDATE  => array(
                 array('onPostPackageUpdate', 0),
             ),
-            /*ScriptEvents::POST_INSTALL_CMD     => array(
+            ScriptEvents::POST_INSTALL_CMD     => array(
                 array('onPostInstallUpdateCmd', 0),
             ),
             ScriptEvents::POST_UPDATE_CMD      => array(
                 array('onPostInstallUpdateCmd', 0),
-            ),*/
+            ),
         );
     }
 
@@ -133,10 +133,11 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
         foreach ((array)$rules as $part) {
             // Split patterns for single globs (should be max 260 chars)
             $patterns = (array)$part;
-            
+
             foreach ($patterns as $pattern) {
                 try {
                     foreach (glob($dir . '/' . $pattern) as $file) {
+                        //echo $file . PHP_EOL;
                         $this->filesystem->remove($file);
                     }
                 } catch (\Exception $e) {
