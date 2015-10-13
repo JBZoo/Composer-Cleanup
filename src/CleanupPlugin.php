@@ -122,7 +122,7 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
 
         $rules = isset($this->rules[$packageName]) ? $this->rules[$packageName] : null;
         if (!$rules) {
-            return false;
+            return;
         }
 
         $dir = $this->filesystem->normalizePath(realpath($vendorDir . '/' . $packageDir));
@@ -132,15 +132,12 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
 
         foreach ((array)$rules as $part) {
             // Split patterns for single globs (should be max 260 chars)
-            if (is_array($part)) {
-                $patterns = $part;
-            } else {
-                $patterns = explode(' ', trim($part));
-            }
+            $patterns = explode(' ', trim($part));
 
             foreach ($patterns as $pattern) {
                 try {
                     foreach (glob($dir . '/' . $pattern) as $file) {
+                        echo 'd'.__LINE__;
                         $this->filesystem->remove($file);
                     }
                 } catch (\Exception $e) {

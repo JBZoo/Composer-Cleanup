@@ -11,7 +11,7 @@ class CleanupRules
     public static function getRules()
     {
         // Default patterns for common files
-        $docs = array(
+        $removeList = implode(' ', array(
             'README*',
             'CHANGELOG*',
             'FAQ*',
@@ -26,9 +26,6 @@ class CleanupRules
             'doc',
             'docs',
             'readme*',
-        );
-
-        $tests = array(
             '.travis.yml',
             '.scrutinizer.yml',
             'phpunit.xml*',
@@ -40,16 +37,17 @@ class CleanupRules
             '.codeclimate.yml',
             '.gitignore',
             'demo.php',
-        );
+            'test.php',
+        ));
 
         return array(
             // JBZoo pack
-            'jbzoo/data'        => array($docs, $tests),
-            'jbzoo/sqlbuilder'  => array($docs, $tests),
-            'jbzoo/simpletypes' => array($docs, $tests),
+            'jbzoo/data'        => array($removeList),
+            'jbzoo/sqlbuilder'  => array($removeList),
+            'jbzoo/simpletypes' => array($removeList),
 
             // Others
-            'symfony/yaml'      => array($docs, $tests),
+            'symfony/yaml'      => array($removeList),
         );
     }
 
