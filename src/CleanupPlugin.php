@@ -132,7 +132,7 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
 
         foreach ((array)$rules as $part) {
             // Split patterns for single globs (should be max 260 chars)
-            if (!is_array($part)) {
+            if (is_array($part)) {
                 $patterns = $part;
             } else {
                 $patterns = explode(' ', trim($part));
