@@ -25,6 +25,9 @@
     },
 
     "extra": {
-        "class": "JBZoo\\ComposerCleanup\\CleanupPlugin"
+        "class": "JBZoo\\ComposerCleanup\\CleanupPlugin",
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
     }
 }
