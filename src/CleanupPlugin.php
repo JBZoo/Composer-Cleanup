@@ -12,6 +12,8 @@ use Composer\Script\CommandEvent;
 use Composer\Util\Filesystem;
 use Composer\Package\BasePackage;
 
+dump(111111);
+
 /**
  * Class CleanupPlugin
  * @package JBZoo\ComposerCleanup
@@ -46,6 +48,8 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
      */
     public static function getSubscribedEvents()
     {
+        dump(1);
+
         return array(
             ScriptEvents::POST_PACKAGE_INSTALL => array(
                 array('onPostPackageInstall', 0),
