@@ -29,6 +29,8 @@ class CleanupRules
         );
 
         $tests = array(
+            '.idea',
+            '.git',
             '.travis.yml',
             '.scrutinizer.yml',
             'phpunit.xml*',

@@ -145,7 +145,7 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
             return false;
         }
 
-        $this->io->write('Rules: ' . print_r($rules, true));
+        //$this->io->write('Rules: ' . print_r($rules, true));
 
         foreach ((array)$rules as $part) {
             // Split patterns for single globs (should be max 260 chars)
