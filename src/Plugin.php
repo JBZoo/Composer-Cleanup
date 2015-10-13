@@ -65,7 +65,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
         $this->io         = $io;
         $this->config     = $composer->getConfig();
         $this->filesystem = new Filesystem();
-        $this->rules      = CleanupRules::getRules();
+        $this->rules      = Rules::getRules();
     }
 
     /**
