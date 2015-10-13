@@ -2,6 +2,10 @@
 
 namespace JBZoo\ComposerCleanup;
 
+/**
+ * Class CleanupRules
+ * @package JBZoo\ComposerCleanup
+ */
 class CleanupRules
 {
     public static function getRules()

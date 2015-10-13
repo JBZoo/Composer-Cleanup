@@ -12,6 +12,10 @@ use Composer\Script\CommandEvent;
 use Composer\Util\Filesystem;
 use Composer\Package\BasePackage;
 
+/**
+ * Class CleanupPlugin
+ * @package JBZoo\ComposerCleanup
+ */
 class CleanupPlugin implements PluginInterface, EventSubscriberInterface
 {
     /** @var  \Composer\Composer $composer */
@@ -49,12 +53,12 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
             ScriptEvents::POST_PACKAGE_UPDATE  => array(
                 array('onPostPackageUpdate', 0),
             ),
-            /*ScriptEvents::POST_INSTALL_CMD  => array(
-                array('onPostInstallUpdateCmd', 0)
+            ScriptEvents::POST_INSTALL_CMD     => array(
+                array('onPostInstallUpdateCmd', 0),
             ),
-            ScriptEvents::POST_UPDATE_CMD  => array(
-                array('onPostInstallUpdateCmd', 0)
-            ),*/
+            ScriptEvents::POST_UPDATE_CMD      => array(
+                array('onPostInstallUpdateCmd', 0),
+            ),
         );
     }
 
