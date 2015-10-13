@@ -20,11 +20,11 @@
 
     "autoload": {
         "psr-4": {
-            "JBZoo\\ComposerCleanup\\": "src"
+            "JBZoo\\Composer\\Cleanup\\": "src"
         }
     },
 
     "extra": {
-        "class": "JBZoo\\ComposerCleanup\\CleanupPlugin"
+        "class": "JBZoo\\Composer\\Cleanup\\Plugin"
     }
 }

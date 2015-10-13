@@ -1,6 +1,19 @@
 <?php
+/**
+ * JBZoo Composer Cleanup Plugin
+ *
+ * This file is part of the JBZoo CCK package.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @package   JBZoo\Composer\Cleanup
+ * @license   MIT
+ * @copyright Copyright (C) JBZoo.com,  All rights reserved.
+ * @link      https://github.com/JBZoo/Composer-Cleanup
+ * @author    Denis Smetannikov <denis@jbzoo.com>
+ */
 
-namespace JBZoo\ComposerCleanup;
+namespace JBZoo\Composer\Cleanup;
 
 use Composer\Composer;
 use Composer\EventDispatcher\EventSubscriberInterface;
@@ -13,10 +26,10 @@ use Composer\Util\Filesystem;
 use Composer\Package\BasePackage;
 
 /**
- * Class CleanupPlugin
- * @package JBZoo\ComposerCleanup
+ * Class Plugin
+ * @package JBZoo\Composer\Cleanup
  */
-class CleanupPlugin implements PluginInterface, EventSubscriberInterface
+class Plugin implements PluginInterface, EventSubscriberInterface
 {
     /**
      * @var  \Composer\Composer $composer
