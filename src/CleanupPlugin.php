@@ -18,15 +18,29 @@ use Composer\Package\BasePackage;
  */
 class CleanupPlugin implements PluginInterface, EventSubscriberInterface
 {
-    /** @var  \Composer\Composer $composer */
+    /**
+     * @var  \Composer\Composer $composer
+     */
     protected $composer;
-    /** @var  \Composer\IO\IOInterface $io */
+
+    /**
+     * @var  \Composer\IO\IOInterface $io
+     */
     protected $io;
-    /** @var  \Composer\Config $config */
+
+    /**
+     * @var  \Composer\Config $config
+     */
     protected $config;
-    /** @var  \Composer\Util\Filesystem $filesystem */
+
+    /**
+     * @var  \Composer\Util\Filesystem $filesystem
+     */
     protected $filesystem;
-    /** @var  array $rules */
+
+    /**
+     * @var  array $rules
+     */
     protected $rules;
 
     /**
@@ -70,6 +84,8 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
         /** @var \Composer\Package\CompletePackage $package */
         $package = $event->getOperation()->getPackage();
 
+        $this->io->write('Called: ' . __METHOD__);
+
         $this->cleanPackage($package);
     }
 
@@ -80,6 +96,8 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
     {
         /** @var \Composer\Package\CompletePackage $package */
         $package = $event->getOperation()->getTargetPackage();
+
+        $this->io->write('Called: ' . __METHOD__);
 
         $this->cleanPackage($package);
     }
@@ -112,6 +130,7 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
     {
         // Only clean 'dist' packages
         if ($package->getInstallationSource() !== 'dist') {
+            $this->io->writeError('Not dist: dist');
             return false;
         }
 
@@ -122,13 +141,17 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
 
         $rules = isset($this->rules[$packageName]) ? $this->rules[$packageName] : null;
         if (!$rules) {
+            $this->io->writeError('Rules not found: ' . $packageName);
             return false;
         }
 
         $dir = $this->filesystem->normalizePath(realpath($vendorDir . '/' . $packageDir));
         if (!is_dir($dir)) {
+            $this->io->writeError('Vendor dir not found: ' . $vendorDir . '/' . $packageDir);
             return false;
         }
+
+        $this->io->write('Rules: ' . print_r($rules, true));
 
         foreach ((array)$rules as $part) {
             // Split patterns for single globs (should be max 260 chars)
@@ -137,8 +160,8 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
             foreach ($patterns as $pattern) {
                 try {
                     foreach (glob($dir . '/' . $pattern) as $file) {
-                        //echo $file . PHP_EOL;
                         $this->filesystem->remove($file);
+                        $this->io->write('File removed: ' . $file);
                     }
                 } catch (\Exception $e) {
                     $this->io->write("Could not parse $packageDir ($pattern): " . $e->getMessage());
