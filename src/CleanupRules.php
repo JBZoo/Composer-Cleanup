@@ -11,8 +11,36 @@ class CleanupRules
     public static function getRules()
     {
         // Default patterns for common files
-        $docs  = 'README* CHANGELOG* FAQ* CONTRIBUTING* HISTORY* UPGRADING* UPGRADE* package* demo example examples doc docs readme*';
-        $tests = '.travis.yml .scrutinizer.yml phpunit.xml* phpunit.php test tests Tests travis';
+        $docs = array(
+            'README*',
+            'CHANGELOG*',
+            'FAQ*',
+            'CONTRIBUTING*',
+            'HISTORY*',
+            'UPGRADING*',
+            'UPGRADE*',
+            'package*',
+            'demo',
+            'example',
+            'examples',
+            'doc',
+            'docs',
+            'readme*',
+        );
+
+        $tests = array(
+            '.travis.yml',
+            '.scrutinizer.yml',
+            'phpunit.xml*',
+            'phpunit.php',
+            'test',
+            'tests',
+            'Tests',
+            'travis',
+            '.codeclimate.yml',
+            '.gitignore',
+            'demo.php',
+        );
 
         return array(
             // JBZoo pack

@@ -12,8 +12,6 @@ use Composer\Script\CommandEvent;
 use Composer\Util\Filesystem;
 use Composer\Package\BasePackage;
 
-echo 'd'.__LINE__;
-
 /**
  * Class CleanupPlugin
  * @package JBZoo\ComposerCleanup
@@ -36,8 +34,6 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
      */
     public function activate(Composer $composer, IOInterface $io)
     {
-        echo 'd'.__LINE__;
-
         $this->composer   = $composer;
         $this->io         = $io;
         $this->config     = $composer->getConfig();
@@ -50,8 +46,6 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
      */
     public static function getSubscribedEvents()
     {
-        echo 'd'.__LINE__;
-
         return array(
             ScriptEvents::POST_PACKAGE_INSTALL => array(
                 array('onPostPackageInstall', 0),
@@ -59,12 +53,12 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
             ScriptEvents::POST_PACKAGE_UPDATE  => array(
                 array('onPostPackageUpdate', 0),
             ),
-            ScriptEvents::POST_INSTALL_CMD     => array(
+            /*ScriptEvents::POST_INSTALL_CMD     => array(
                 array('onPostInstallUpdateCmd', 0),
             ),
             ScriptEvents::POST_UPDATE_CMD      => array(
                 array('onPostInstallUpdateCmd', 0),
-            ),
+            ),*/
         );
     }
 
@@ -73,8 +67,6 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
      */
     public function onPostPackageInstall(PackageEvent $event)
     {
-        echo 'd'.__LINE__;
-
         /** @var \Composer\Package\CompletePackage $package */
         $package = $event->getOperation()->getPackage();
 
@@ -118,14 +110,10 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
      */
     protected function cleanPackage(BasePackage $package)
     {
-        echo 'd'.__LINE__;
-
         // Only clean 'dist' packages
         if ($package->getInstallationSource() !== 'dist') {
             return false;
         }
-
-        echo 'd'.__LINE__;
 
         $vendorDir   = $this->config->get('vendor-dir');
         $targetDir   = $package->getTargetDir();
@@ -134,26 +122,25 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
 
         $rules = isset($this->rules[$packageName]) ? $this->rules[$packageName] : null;
         if (!$rules) {
-            return;
+            return false;
         }
-
-        echo 'd'.__LINE__;
 
         $dir = $this->filesystem->normalizePath(realpath($vendorDir . '/' . $packageDir));
         if (!is_dir($dir)) {
             return false;
         }
 
-        echo 'd'.__LINE__;
-
         foreach ((array)$rules as $part) {
             // Split patterns for single globs (should be max 260 chars)
-            $patterns = explode(' ', trim($part));
+            if (!is_array($part)) {
+                $patterns = $part;
+            } else {
+                $patterns = explode(' ', trim($part));
+            }
 
             foreach ($patterns as $pattern) {
                 try {
                     foreach (glob($dir . '/' . $pattern) as $file) {
-                        echo 'd'.__LINE__;
                         $this->filesystem->remove($file);
                     }
                 } catch (\Exception $e) {
