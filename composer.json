@@ -1,0 +1,30 @@
+{
+    "name": "jbzoo/composer-cleanup",
+    "type": "composer-plugin",
+    "description": "A composer cleanup plugin, to remove tests and documentation to save space",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SmetDenis",
+            "email": "denis@jbzoo.com"
+        },
+        {
+            "name": "Barry vd. Heuvel",
+            "email": "barryvdh@gmail.com"
+        }
+    ],
+
+    "require": {
+        "composer-plugin-api": "1.0.0"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "JBZoo\\ComposerCleanup\\": "src"
+        }
+    },
+
+    "extra": {
+        "class": "JBZoo\\ComposerCleanup\\CleanupPlugin"
+    }
+}
