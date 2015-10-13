@@ -71,12 +71,15 @@ class Rules
 
         return array(
             // JBZoo pack
-            'jbzoo/data'        => array($docs, $tests, $system),
-            'jbzoo/sqlbuilder'  => array($docs, $tests, $system),
-            'jbzoo/simpletypes' => array($docs, $tests, $system),
+            'jbzoo/data'             => array($docs, $tests, $system),
+            'jbzoo/sqlbuilder'       => array($docs, $tests, $system),
+            'jbzoo/simpletypes'      => array($docs, $tests, $system),
 
             // Others
-            'symfony/yaml'      => array($docs, $tests, $system),
+            'symfony/yaml'           => array($docs, $tests, $system),
+
+            // System
+            'jbzoo/composer-cleanup' => array(),
         );
     }
 
