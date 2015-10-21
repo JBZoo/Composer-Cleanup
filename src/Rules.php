@@ -84,10 +84,13 @@ class Rules
             'symfony/css-selector'       => array($docs, $tests, $system),
             'oyejorge/less.php'          => array($docs, $tests, $system),
             'abeautifulsite/simpleimage' => array($docs, $tests, $system),
+            'smetdenis/jbdump'           => array($docs, $tests, $system, [
+                'joomla', 'logs', 'tools', '_template.php', 'favicon.ico', 'htaccess.example',
+                'index.php', 'init.php.example', 'styles.less',
+            ]),
 
             // System
             'jbzoo/composer-cleanup'     => array(),
         );
     }
-
 }
