@@ -30,7 +30,9 @@ class Rules
         // Default patterns for common files
         $docs = array(
             'README*',
+            'readme*',
             'CHANGELOG*',
+            'CHANGES*',
             'FAQ*',
             'CONTRIBUTING*',
             'HISTORY*',
@@ -50,12 +52,14 @@ class Rules
             '.scrutinizer.yml',
             '.codeclimate.yml',
 
-            'phpunit.xml*',
-            'phpunit.php',
+            'phpunit.*',
 
             'test',
             'tests',
             'Tests',
+            'example',
+            'examples',
+            '*.md',
 
             'travis',
 
@@ -71,15 +75,18 @@ class Rules
 
         return array(
             // JBZoo pack
-            'jbzoo/data'             => array($docs, $tests, $system),
-            'jbzoo/sqlbuilder'       => array($docs, $tests, $system),
-            'jbzoo/simpletypes'      => array($docs, $tests, $system),
+            'jbzoo/data'                 => array($docs, $tests, $system),
+            'jbzoo/sqlbuilder'           => array($docs, $tests, $system),
+            'jbzoo/simpletypes'          => array($docs, $tests, $system),
 
             // Others
-            'symfony/yaml'           => array($docs, $tests, $system),
+            'symfony/yaml'               => array($docs, $tests, $system),
+            'symfony/css-selector'       => array($docs, $tests, $system),
+            'oyejorge/less.php'          => array($docs, $tests, $system),
+            'abeautifulsite/simpleimage' => array($docs, $tests, $system),
 
             // System
-            'jbzoo/composer-cleanup' => array(),
+            'jbzoo/composer-cleanup'     => array(),
         );
     }
 
