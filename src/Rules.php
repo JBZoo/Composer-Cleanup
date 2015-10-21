@@ -71,6 +71,7 @@ class Rules
             '.gitignore',
             '.idea',
             '.git',
+            '.gitattributes',
         );
 
         return array(
@@ -90,7 +91,7 @@ class Rules
             ]),
 
             // System
-            'jbzoo/composer-cleanup'     => array(),
+            'jbzoo/composer-cleanup'     => array($docs, $tests, $system),
         );
     }
 }
