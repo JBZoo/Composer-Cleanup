@@ -64,11 +64,11 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      */
     public function activate(Composer $composer, IOInterface $io)
     {
-        $this->composer    = $composer;
-        $this->io = $io;
-        $this->config      = $composer->getConfig();
-        $this->filesystem  = new Filesystem();
-        $this->rules       = Rules::getRules();
+        $this->composer   = $composer;
+        $this->io         = $io;
+        $this->config     = $composer->getConfig();
+        $this->filesystem = new Filesystem();
+        $this->rules      = Rules::getRules();
     }
 
     /**
