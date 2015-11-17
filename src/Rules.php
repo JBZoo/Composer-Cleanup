@@ -79,6 +79,7 @@ class Rules
             'jbzoo/data'                 => array($docs, $tests, $system),
             'jbzoo/sqlbuilder'           => array($docs, $tests, $system),
             'jbzoo/simpletypes'          => array($docs, $tests, $system),
+            'jbzoo/utils'                => array($docs, $tests, $system),
 
             // Others
             'symfony/yaml'               => array($docs, $tests, $system),
