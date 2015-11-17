@@ -83,7 +83,7 @@ class Rules
             // Others
             'symfony/yaml'               => array($docs, $tests, $system),
             'symfony/css-selector'       => array($docs, $tests, $system),
-            'oyejorge/less.php'          => array($docs, $tests, $system),
+            'oyejorge/less.php'          => array($docs, $tests, $system, ['bin']),
             'abeautifulsite/simpleimage' => array($docs, $tests, $system),
             'smetdenis/jbdump'           => array($docs, $tests, $system, [
                 'joomla', 'logs', 'tools', '_template.php', 'favicon.ico', 'htaccess.example',

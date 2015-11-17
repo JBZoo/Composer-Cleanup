@@ -28,6 +28,9 @@ use Composer\Package\BasePackage;
 /**
  * Class Plugin
  * @package JBZoo\Composer\Cleanup
+ *
+ * @SuppressWarnings(PHPMD.ShortVariable)
+ * @SuppressWarnings(PHPMD.UnusedFormalParameter)
  */
 class Plugin implements PluginInterface, EventSubscriberInterface
 {
@@ -61,11 +64,11 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      */
     public function activate(Composer $composer, IOInterface $io)
     {
-        $this->composer   = $composer;
-        $this->io         = $io;
-        $this->config     = $composer->getConfig();
-        $this->filesystem = new Filesystem();
-        $this->rules      = Rules::getRules();
+        $this->composer    = $composer;
+        $this->io = $io;
+        $this->config      = $composer->getConfig();
+        $this->filesystem  = new Filesystem();
+        $this->rules       = Rules::getRules();
     }
 
     /**
@@ -138,6 +141,8 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      *
      * @param BasePackage $package The package to clean
      * @return bool True if cleaned
+     *
+     * @SuppressWarnings(PHPMD.NPathComplexity)
      */
     protected function cleanPackage(BasePackage $package)
     {
