@@ -72,6 +72,7 @@ class Rules
             '.idea',
             '.git',
             '.gitattributes',
+            '.phpstorm.meta.php',
         );
 
         return array(
