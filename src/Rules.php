@@ -81,16 +81,17 @@ class Rules
             'jbzoo/sqlbuilder'           => array($docs, $tests, $system),
             'jbzoo/simpletypes'          => array($docs, $tests, $system),
             'jbzoo/utils'                => array($docs, $tests, $system),
+            'jbzoo/crosscms'             => array($docs, $tests, $system),
+            'jbzoo/jbdump'               => array($docs, $tests, $system, [
+                'joomla', 'logs', 'tools', '_template.php', 'favicon.ico', 'htaccess.example',
+                'index.php', 'init.php.example', 'styles.less',
+            ]),
 
             // Others
             'symfony/yaml'               => array($docs, $tests, $system),
             'symfony/css-selector'       => array($docs, $tests, $system),
             'oyejorge/less.php'          => array($docs, $tests, $system, ['bin']),
             'abeautifulsite/simpleimage' => array($docs, $tests, $system),
-            'jbzoo/jbdump'               => array($docs, $tests, $system, [
-                'joomla', 'logs', 'tools', '_template.php', 'favicon.ico', 'htaccess.example',
-                'index.php', 'init.php.example', 'styles.less',
-            ]),
 
             // System
             'jbzoo/composer-cleanup'     => array($docs, $tests, $system),
