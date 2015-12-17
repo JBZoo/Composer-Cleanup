@@ -51,8 +51,10 @@ class Rules
             '.travis.yml',
             '.scrutinizer.yml',
             '.codeclimate.yml',
+            '.coveralls.yml',
 
             'phpunit.*',
+            'phpunit-*',
 
             'test',
             'tests',
@@ -92,6 +94,7 @@ class Rules
             'symfony/css-selector'       => array($docs, $tests, $system),
             'oyejorge/less.php'          => array($docs, $tests, $system, ['bin']),
             'abeautifulsite/simpleimage' => array($docs, $tests, $system),
+            'pimple/pimple'              => array($docs, $tests, $system, ['ext', 'src\\Pimple\\Tests']),
 
             // System
             'jbzoo/composer-cleanup'     => array($docs, $tests, $system),
