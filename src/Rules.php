@@ -92,8 +92,12 @@ class Rules
             ]),
 
             // Others
-            'symfony/yaml'               => array($docs, $tests, $system),
-            'symfony/css-selector'       => array($docs, $tests, $system),
+            'symfony/yaml'              => array($docs, $tests, $system),
+            'symfony/css-selector'      => array($docs, $tests, $system),
+            'symfony/polyfill-mbstring' => array($docs, $tests, $system),
+            'symfony/process'           => array($docs, $tests, $system),
+            'symfony/console'           => array($docs, $tests, $system),
+             
             'oyejorge/less.php'          => array($docs, $tests, $system, ['bin']),
             'abeautifulsite/simpleimage' => array($docs, $tests, $system),
             'pimple/pimple'              => array($docs, $tests, $system, ['ext', 'src\\Pimple\\Tests']),
