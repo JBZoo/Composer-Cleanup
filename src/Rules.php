@@ -85,6 +85,7 @@ class Rules
             'jbzoo/utils'                => array($docs, $tests, $system),
             'jbzoo/crosscms'             => array($docs, $tests, $system),
             'jbzoo/path'                 => array($docs, $tests, $system),
+            'jbzoo/console'              => array($docs, $tests, $system),
             'jbzoo/jbdump'               => array($docs, $tests, $system, [
                 'joomla', 'logs', 'tools', '_template.php', 'favicon.ico', 'htaccess.example',
                 'index.php', 'init.php.example', 'styles.less',
