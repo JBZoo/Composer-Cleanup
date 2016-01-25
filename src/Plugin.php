@@ -100,7 +100,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
         /** @var \Composer\Package\CompletePackage $package */
         $package = $event->getOperation()->getPackage();
 
-        $this->io->write('Called: ' . __METHOD__);
+        //$this->io->write('Called: ' . __METHOD__);
 
         $this->cleanPackage($package);
     }
@@ -113,7 +113,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
         /** @var \Composer\Package\CompletePackage $package */
         $package = $event->getOperation()->getTargetPackage();
 
-        $this->io->write('Called: ' . __METHOD__);
+        //$this->io->write('Called: ' . __METHOD__);
 
         $this->cleanPackage($package);
     }
@@ -173,7 +173,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
                 try {
                     foreach (glob($dir . '/' . $pattern) as $file) {
                         $this->filesystem->remove($file);
-                        $this->io->write('File removed: ' . $file);
+                        //$this->io->write('File removed: ' . $file);
                     }
                 } catch (\Exception $e) {
                     $this->io->write("Could not parse $packageDir ($pattern): " . $e->getMessage());
