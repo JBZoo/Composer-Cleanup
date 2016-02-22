@@ -29,6 +29,7 @@ class Rules
     {
         // Default patterns for common files
         $docs = array(
+            'LICENSE*',
             'README*',
             'readme*',
             'CHANGELOG*',
@@ -75,6 +76,7 @@ class Rules
             '.git',
             '.gitattributes',
             '.phpstorm.meta.php',
+            'composer.json'
         );
 
         return array(
@@ -85,7 +87,7 @@ class Rules
             'jbzoo/data'                 => array($docs, $tests, $system),
             'jbzoo/event'                => array($docs, $tests, $system),
             'jbzoo/html'                 => array($docs, $tests, $system),
-            'jbzoo/image'                => array($docs, $tests, $system),
+            'jbzoo/image'                => array($docs, $tests, $system, ['build']),
             'jbzoo/lang'                 => array($docs, $tests, $system),
             'jbzoo/path'                 => array($docs, $tests, $system),
             'jbzoo/simpletypes'          => array($docs, $tests, $system),
