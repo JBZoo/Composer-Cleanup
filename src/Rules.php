@@ -79,13 +79,19 @@ class Rules
 
         return array(
             // JBZoo pack
-            'jbzoo/data'                 => array($docs, $tests, $system),
-            'jbzoo/sqlbuilder'           => array($docs, $tests, $system),
-            'jbzoo/simpletypes'          => array($docs, $tests, $system),
-            'jbzoo/utils'                => array($docs, $tests, $system),
-            'jbzoo/crosscms'             => array($docs, $tests, $system),
-            'jbzoo/path'                 => array($docs, $tests, $system),
+            'jbzoo/assets'               => array($docs, $tests, $system),
             'jbzoo/console'              => array($docs, $tests, $system),
+            'jbzoo/crosscms'             => array($docs, $tests, $system),
+            'jbzoo/data'                 => array($docs, $tests, $system),
+            'jbzoo/event'                => array($docs, $tests, $system),
+            'jbzoo/html'                 => array($docs, $tests, $system),
+            'jbzoo/image'                => array($docs, $tests, $system),
+            'jbzoo/lang'                 => array($docs, $tests, $system),
+            'jbzoo/path'                 => array($docs, $tests, $system),
+            'jbzoo/simpletypes'          => array($docs, $tests, $system),
+            'jbzoo/sqlbuilder'           => array($docs, $tests, $system),
+            'jbzoo/utils'                => array($docs, $tests, $system),
+
             'jbzoo/jbdump'               => array($docs, $tests, $system, [
                 'joomla', 'logs', 'tools', '_template.php', 'favicon.ico', 'htaccess.example',
                 'index.php', 'init.php.example', 'styles.less',
