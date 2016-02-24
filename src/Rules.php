@@ -88,6 +88,7 @@ class Rules
             'jbzoo/event'                => array($docs, $tests, $system),
             'jbzoo/html'                 => array($docs, $tests, $system),
             'jbzoo/image'                => array($docs, $tests, $system, ['build']),
+            'jbzoo/less'                 => array($docs, $tests, $system),
             'jbzoo/lang'                 => array($docs, $tests, $system),
             'jbzoo/path'                 => array($docs, $tests, $system),
             'jbzoo/simpletypes'          => array($docs, $tests, $system),
