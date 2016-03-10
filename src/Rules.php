@@ -91,6 +91,8 @@ class Rules
             'jbzoo/less'                 => array($docs, $tests, $system),
             'jbzoo/lang'                 => array($docs, $tests, $system),
             'jbzoo/path'                 => array($docs, $tests, $system),
+            'jbzoo/pimpledumper'         => array($docs, $tests, $system),
+            'jbzoo/profiler'             => array($docs, $tests, $system),
             'jbzoo/simpletypes'          => array($docs, $tests, $system),
             'jbzoo/sqlbuilder'           => array($docs, $tests, $system),
             'jbzoo/utils'                => array($docs, $tests, $system),
