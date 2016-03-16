@@ -76,7 +76,9 @@ class Rules
             '.git',
             '.gitattributes',
             '.phpstorm.meta.php',
-            'composer.json'
+            'composer.json',
+            'pimple.json',
+            '.editorconfig'
         );
 
         return array(
@@ -111,7 +113,7 @@ class Rules
              
             'oyejorge/less.php'          => array($docs, $tests, $system, ['bin']),
             'abeautifulsite/simpleimage' => array($docs, $tests, $system),
-            'pimple/pimple'              => array($docs, $tests, $system, ['ext', 'src\\Pimple\\Tests']),
+            'pimple/pimple'              => array($docs, $tests, $system, ['ext', 'src/Pimple/Tests']),
 
             // System
             'jbzoo/composer-cleanup'     => array($docs, $tests, $system),
