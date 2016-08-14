@@ -78,7 +78,8 @@ class Rules
             '.phpstorm.meta.php',
             'composer.json',
             'pimple.json',
-            '.editorconfig'
+            '.editorconfig',
+            'Makefile'
         );
 
         return array(
